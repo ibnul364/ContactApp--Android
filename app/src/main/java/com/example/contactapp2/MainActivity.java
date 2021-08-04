@@ -12,11 +12,12 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    DatabaseHelper databaseHelper;
+    static DatabaseHelper databaseHelper;
     SQLiteDatabase sqLiteDatabase;
 
     private EditText editName,editSurname;
     private Button addButton,showButton;
+
 
 
     @Override
@@ -33,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         //Button
         addButton = findViewById(R.id.savebuttonId);
         showButton = findViewById(R.id.showbuttonId);
+
+
+
+
 
 
 

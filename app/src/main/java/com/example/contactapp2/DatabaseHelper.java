@@ -86,6 +86,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public int updateInformation(long id, String name, String surName) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(NAME,name);
+        contentValues.put(SURNAME,surName);
+        String whereArgs[] = {""+id};
+        int count = sqLiteDatabase.update(TABLE_NAME,contentValues,NAME+ "=?",whereArgs);
+        return count;
 
-
+    }
 }

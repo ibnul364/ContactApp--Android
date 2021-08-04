@@ -11,10 +11,13 @@
         android:theme="@style/Theme.ContactApp2">
         <activity
             android:name=".UpdateActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".ListDataActivity"
+            />
         <activity
             android:name=".ListDataActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -10,16 +10,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class ListDataActivity extends AppCompatActivity {
-    private DatabaseHelper databaseHelper;
+    static DatabaseHelper databaseHelper;
     private ListView listView;
     private SQLiteDatabase sqLiteDatabase;
-
+//    private Button backButton;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,10 @@ public class ListDataActivity extends AppCompatActivity {
 
             listView = findViewById(R.id.listViewId);
 
-                loadData();
+            loadData();
+
         }
+
 
             public  void loadData() {
                 //Create an arraylist so that i can load the data to add in the  arraylist
@@ -56,13 +59,20 @@ public class ListDataActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String selectedValue = adapterView.getItemAtPosition(position).toString();
 
-                Toast.makeText(getApplicationContext(), "Selected Value : " + selectedValue, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(ListDataActivity.this,UpdateActivity.class);
-//                intent.putExtra("name","Name");
-//                intent.putExtra("surName","SURNAME");
-                startActivity(intent);
+                    cursor.moveToPosition(position);
+                    String name = cursor.getString(1);
+                    String surName = cursor.getString(2);
+//                    listData.add(cursor.getString(1) + " \t " + cursor.getString(2));
+                    Intent intent = new Intent(ListDataActivity.this, UpdateActivity.class);
+                    Toast.makeText(getApplicationContext(), "Selected Value : " + selectedValue, Toast.LENGTH_LONG).show();
+                    intent.putExtra("id", id);
+                    intent.putExtra("name", name);
+                    intent.putExtra("surName", surName);
+                    startActivity(intent);
+                    finish();
 
-            }
+                }
+
         });
 
 
