@@ -92,8 +92,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(NAME,name);
         contentValues.put(SURNAME,surName);
         String whereArgs[] = {""+id};
-        int count = sqLiteDatabase.update(TABLE_NAME,contentValues,NAME+ "=?",whereArgs);
+        int count = sqLiteDatabase.update(TABLE_NAME,contentValues,ID+ "=?",whereArgs);
         return count;
 
+    }
+
+    //delete
+    public int deleteDataNew(long id){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        String whereArgs [ ] ={""+id};
+        int count = sqLiteDatabase.delete(TABLE_NAME,ID+ "=?",whereArgs);
+        return count;
     }
 }

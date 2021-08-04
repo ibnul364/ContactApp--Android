@@ -73,7 +73,17 @@ public class UpdateActivity extends AppCompatActivity {
 
             }
         });
+
+
+
     }
 
 
+    public void deleteContact(View view) {
+
+        ListDataActivity.databaseHelper.deleteDataNew(id);
+        startActivity(new Intent(UpdateActivity.this,MainActivity.class));
+        finish();
+
+    }
 }
