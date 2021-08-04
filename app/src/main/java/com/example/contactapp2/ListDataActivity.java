@@ -58,6 +58,8 @@ public class ListDataActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Selected Value : " + selectedValue, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(ListDataActivity.this,UpdateActivity.class);
+//                intent.putExtra("name","Name");
+//                intent.putExtra("surName","SURNAME");
                 startActivity(intent);
 
             }

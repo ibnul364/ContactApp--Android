@@ -27,6 +27,9 @@ public class UpdateActivity extends AppCompatActivity {
 
         selectedName = receiveIntent.getStringExtra("surName");
 
+//        String name = getIntent().getStringExtra(selectedID);
+//        String surname = getIntent().getStringExtra(selectedName);
+
 
 
     }
